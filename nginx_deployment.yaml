@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: myapp
+  labels:
+    tier: back-end
+spec:
+  replicas: 5
+  template:
+    metadata: 
+      name: myapp-pod
+      labels:
+        tier: front-end     
+    spec:
+      containers:
+      - name: redis
+        image: nginx:1.20.2app
+        
+  selector:
+    matchLabels:
+      tier: front-end       

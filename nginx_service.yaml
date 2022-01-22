@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp
+spec:
+  type: NodePort  
+  ports:
+    - port: 85
+      targetPort: 85
+      nodePort: 30004
+  selector:    
+      tier: front-end      
+
