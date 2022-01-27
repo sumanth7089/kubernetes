@@ -1,0 +1,15 @@
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: pod-volume
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest 
+      volumeMounts:
+        - name: pod-volume 
+          mountPath: /var/www
+  volumes:
+    - name: pod-volume 
+      hostPath: /home/sumanth/myapp
+      

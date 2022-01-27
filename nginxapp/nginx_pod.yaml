@@ -6,5 +6,5 @@ metadata:
     tier: front-end
 spec:
   containers:
-  - name: redis
+  - name: nginx
     image: nginx:1.21.5

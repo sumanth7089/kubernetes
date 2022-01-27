@@ -3,14 +3,14 @@ kind: Deployment
 metadata: 
   name: webserver
   labels:
-    name: webserver
+    app: webserver
 spec:
   replicas: 4
   template:
     metadata:
       name: webserver
       labels:
-        name: webserver      
+        app: webserver      
     spec:
       containers:
         - name: nginx
@@ -35,4 +35,6 @@ spec:
   selector:
      matchLabels:
         name: webserver
+        labels:
+          app: webserver
           
