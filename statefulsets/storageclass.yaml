@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+provisioner: kubernetes.io/no-provisioner
+reclaimPolicy: Retain
+allowVolumeExpansion: True
+mountOptions:
+  - debug
+volumeBindingMode: waitForFirstConsumer  
