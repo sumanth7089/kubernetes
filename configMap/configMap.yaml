@@ -1,0 +1,7 @@
+apiVersion: v1 
+kind: ConfigMap
+metadata:
+  name: app-config
+spec:
+  APP-COLOR: Red
+  APP-MOD: Test
