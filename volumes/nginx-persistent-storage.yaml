@@ -23,7 +23,7 @@ spec:
           volumeMounts:
           - name: nginx-pvc
             mountPath: /var/www/html
-  volumes: 
+    volumes: 
     - name: nginx-pvc
       persistentVolumeClaim:
         claimName: local-pvc
