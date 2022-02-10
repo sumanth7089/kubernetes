@@ -15,15 +15,22 @@ spec:
     - podSelector:
         matchLabels:
           name: api-pod
-    - nameSpaceSelector:
+      nameSpaceSelector:
         matchLabels:
-          name: dev
-    - nameSpaceSelector:
-        matchLabels: 
-          name: test      
+          name: dev     
     ports:
     - protocol: TCP
       port: 3306
+  - from:    
+    - podSelector:
+        matchLabels:
+          name: api-pod
+      nameSpaceSelector:
+        matchLabels:
+          name: prod
+    ports:
+    - protocol: TCP
+      port: 3306        
   egress:
   - to:
     - podSelector:

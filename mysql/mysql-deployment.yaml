@@ -10,7 +10,7 @@ spec:
       app: mysql-app
       tier: mysql 
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:                    
     metadata:
       labels:                  
