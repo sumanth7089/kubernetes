@@ -3,9 +3,9 @@ kind: Deployment
 metadata: 
   name: myapp
   labels:
-    tier: back-end
+    tier: front-end
 spec:
-  replicas: 5
+  replicas: 3
   template:
     metadata: 
       name: myapp-pod
@@ -13,8 +13,8 @@ spec:
         tier: front-end     
     spec:
       containers:
-      - name: redis
-        image: nginx:1.20.2app
+      - name: nginx-deploymnet
+        image: nginx:latest
         
   selector:
     matchLabels:

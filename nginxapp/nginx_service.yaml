@@ -7,7 +7,7 @@ spec:
   ports:
     - port: 85
       targetPort: 85
-      nodePort: 30004
+      nodePort: 30011
   selector:    
       tier: front-end      
 

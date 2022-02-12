@@ -23,9 +23,12 @@ Use the right selector
 # Create the ingress resourceIngress Created
 Path: /wear
 Path: /watch
+path: /pay
 Configure correct backend service for /wear
 Configure correct backend service for /watch
+configure correct backend service for /pay
 Configure correct backend port for /wear service
 Configure correct backend port for /watch service
+configure correct backend service for /pay service
 Create the ingress resource to make the applications available at /wear and /watch on the Ingress service.
 Create the ingress in the app-space namespace.

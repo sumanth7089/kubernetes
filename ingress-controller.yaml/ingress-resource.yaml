@@ -30,4 +30,11 @@ spec:
             port:
               number: 8080
           path: /eat
-          pathType: Prefix                    
+          pathType: Prefix   
+      - path: /pay
+        pathType: Prefix
+        backend:
+          service:
+           name: pay-service
+           port:
+            number: 8080                   
