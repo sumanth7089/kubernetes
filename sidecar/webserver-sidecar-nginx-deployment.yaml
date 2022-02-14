@@ -23,7 +23,7 @@ spec:
             [  
               "bin/bash",
               "-c",
-              "while true; do cat hello.txt hello1.txt; sleep 30; done"
+              "while true; do cat /var/log/nginx/access.log /var/log/nginx/error.log; sleep 30; done"
             ]
           volumeMounts:
           - name: shared-logs
