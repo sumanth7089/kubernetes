@@ -1,0 +1,22 @@
+apiVersion: v1
+data:
+  redis-config: |
+    maxmemory 2mb
+    maxmemory-policy allkeys-lru
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-02-22T09:34:21Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:redis-config: {}
+    manager: kubectl-create
+    operation: Update
+    time: "2022-02-22T09:34:21Z"
+  name: redis-config
+  namespace: default
+  resourceVersion: "5002"
+  uid: bcf6ce87-51b2-4c95-89b9-4295365af0eb
