@@ -1,0 +1,6 @@
+# master
+troubleshoot the issue and modify the kube-apiserver accoring to certificates 
+and check all the namespaces where the core-dns is running and modify the image
+# node01
+uncordon node01
+to schedule the node01 for ready 
