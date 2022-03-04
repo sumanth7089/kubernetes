@@ -1,0 +1,62 @@
+# Source: webapp-color/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: webapp-sa
+  labels:    
+    tier: frontend    
+    tier: web    
+    tier: proxy
+    app: webapp-color
+---
+# Source: webapp-color/templates/configmap.yaml
+apiVersion: v1
+metadata:
+  name: webapp-color-configmap
+  namespace: default
+kind: ConfigMap
+data:
+     APP_COLOR: darkblue
+---
+# Source: webapp-color/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-color-svc
+  namespace: default
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    nodePort: 30080
+  selector:
+    name: webapp-color
+  type: NodePort
+status:
+  loadBalancer: {}
+---
+# Source: webapp-color/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webapp-color
+  name: webapp-color
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-color
+  template:
+    metadata:
+      labels:
+        app: webapp-color
+    spec:
+      containers:
+      - image: kodekloud/webapp-color
+        name: webapp-color
+        envFrom:
+         - configMapRef:
+                name: webapp-color-configmap
+

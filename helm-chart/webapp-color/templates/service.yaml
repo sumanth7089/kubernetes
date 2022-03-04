@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+  namespace: default
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+    {{- if eq .Values.service.type "NodePort" }}
+    nodePort: {{ .Values.service.nodePort }}
+    {{- end }}
+  selector:
+    name: webapp-color
+  type: {{ .Values.service.type }}
+status:
+  loadBalancer: {}
+ 
+ # Readme.md
+ # Now update the service.yaml file in such a way that when the service type is NodePort it should fetch the nodePort value from the values.yaml file.
+
+
+
+# The service.yaml file is located under the /root/webapp-color/templates directory.
