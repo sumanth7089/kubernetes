@@ -20,6 +20,9 @@ spec:
       httpGet:
         path: /ready
         port: 8080
+      periodSeconds: 10
+      initalDelaySeconds: 15
+      failureThreshold: 10 
     livenessProbe:
       httpGet:
         path: /live

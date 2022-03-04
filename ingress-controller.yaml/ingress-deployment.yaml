@@ -5,7 +5,7 @@ metadata:
   name: ingress-controller
   namespace: ingress-space
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       name: nginx-ingress

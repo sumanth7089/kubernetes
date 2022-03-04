@@ -1,4 +1,4 @@
-apiVersion: v1 
+apiVersion: apps/v1 
 kind: StatefulSet
 metadata:
   name: mysql
@@ -9,12 +9,10 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      name: mysql
       labels:
         app: mysql
   template:
     metadata:
-      name: mysql
       labels:
         app: mysql
     spec: 

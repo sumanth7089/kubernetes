@@ -5,10 +5,15 @@ metadata:
   labels: 
     app: myapp
 spec:
-  replicas: 2
+  replicas: 3
   selector: 
     matchLabels: 
-      app: myapp    
+      app: myapp
+  strategy:
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 2
+    type: RollingUpdate          
   template:
     metadata: 
       labels:
@@ -41,14 +46,29 @@ spec:
             periodSeconds: 10
           resources:
             requests:
-              memory: 256Mi
-              cpu: 512M
+              memory: 100Mi
+              cpu: 10Mi
             limits:
-              memory: 256Mi
-              cpu: 512M
+              memory: 100Mi
+              cpu: 10Mi
           volumeMounts:
           - name: nginx-volume 
             mountPath: /var/www
       volumes:
       - name: nginx-volume
-        hostPath: /home/sumanth/myapp               
+        emptyDir: {}  
+---
+apiVersion: v1 
+kind: Service
+metadata:
+  name: nginx-service
+  labels:
+    app: myapp
+spec:
+  selector: 
+    app: myapp                         
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30002
