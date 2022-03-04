@@ -38,6 +38,7 @@ Access modes: ReadWriteOnce
 Size: 1Gi
 hostPath: /redis06, directory should be created on worker node
 ## redis-cluster-statefulset
+```
 StatefulSet - Name: redis-cluster
 Replicas: 6
 Pods status: Running (All 6 replicas)
@@ -53,6 +54,7 @@ volumes - name: 'conf', Type: 'ConfigMap', ConfigMap Name: 'redis-cluster-config
 volumeClaimTemplates - name: 'data'
 volumeClaimTemplates - accessModes: 'ReadWriteOnce'
 volumeClaimTemplates - Storage Request: '1Gi'
+```
 ## redis-cluster-service
 Ports - service name 'redis-cluster-service', port name: 'client', port: '6379'
 Ports - service name 'redis-cluster-service', port name: 'gossip', port: '16379'
