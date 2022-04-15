@@ -1,0 +1,14 @@
+apiVersion : v1
+kind: Service
+metadata:
+  name: grafana-deployment-nautilus-service
+  labels:
+    app: grafana-deployment-nautilus
+spec:
+  selector:
+    app: grafana-deployment-nautilus
+  type: NodePort
+  ports:
+  - port: 3000
+    targetPort: 3000
+    nodePort: 32000
